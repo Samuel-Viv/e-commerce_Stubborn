@@ -19,7 +19,7 @@
     <div>----------</div>
     <label for="inputName">Nom utilisateur</label>
     <input type="text" value="{{ last_username }}" name="name" id="inputName" class="form-control" autocomplete="name" required autofocus><br>
-    <label for="inputPassword">Password</label>
+    <label for="inputPassword">Mot de passe :</label>
     <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
     <input type="hidden" name="_csrf_token"
@@ -27,15 +27,15 @@
     ><br>
 
     <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
+        Se Connecter
     </button>
 
 </form>
-    <a href="">Mot de passe oublié</a>
+    <a href="#">Mot de passe oublié</a>
     <div>----------</div>
     <p>Pas encore inscrit ?</p>
     <button class="btn btn-lg btn-primary">
-        <a>Créer un compte</a>
+        <a href="{{path('app_register')}}">Créer un compte</a>
     </button>
 </div>
 {% endblock %}
