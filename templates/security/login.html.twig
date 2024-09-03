@@ -24,7 +24,7 @@
           value="{{ last_username }}"
           name="name"
           id="inputName"
-          class="form-control"
+          class="form"
           autocomplete="name"
           required
           autofocus
@@ -34,21 +34,21 @@
           type="password"
           name="password"
           id="inputPassword"
-          class="form-control"
+          class="form"
           autocomplete="current-password"
           required
         />
 
         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" /><br />
 
-        <button class="btn btn-lg btn-primary" type="submit">Se Connecter</button>
+        <button class="btn btn-primary" type="submit">Se Connecter</button>
       </form>
       <a href="/reset-password">Mot de passe oublié</a>
       <div class="container separation-form">
         <div class="separation"></div>
       </div>
       <p>Pas encore inscrit ?</p>
-      <button class="btn btn-lg btn-primary">
+      <button class="btn btn-primary">
         <a href="{{ path('app_register') }}" class="text-light text-decoration-none">Créer un compte</a>
       </button>
     </div>
