@@ -1,41 +1,57 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Log in!{% endblock %}
-
-{% block body %}
+{% extends 'base.html.twig' %} {% block title %}Log in!{% endblock %} {% block body %}
 <div>
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
-
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+  <div class="container security-form">
+    <div class="login-form">
+      <form method="post">
+        {% if error %}
+        <div class="alert alert-danger">
+          {{ error.messageKey|trans(error.messageData, 'security') }}
         </div>
-    {% endif %}
+        {% endif %} {% if app.user %}
+        <div class="mb-3">
+          You are logged in as {{ app.user.userIdentifier }},
+          <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+        {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Se connecter</h1>
-    <div>----------</div>
-    <label for="inputName">Nom utilisateur</label>
-    <input type="text" value="{{ last_username }}" name="name" id="inputName" class="form-control" autocomplete="name" required autofocus><br>
-    <label for="inputPassword">Mot de passe :</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+        <h1 class="h3 mb-3 font-weight-normal">Se connecter</h1>
+        <div class="container separation-form">
+          <div class="separation"></div>
+        </div>
+        <label for="inputName">Nom utilisateur</label>
+        <input
+          type="text"
+          value="{{ last_username }}"
+          name="name"
+          id="inputName"
+          class="form-control"
+          autocomplete="name"
+          required
+          autofocus
+        /><br />
+        <label for="inputPassword">Mot de passe :</label>
+        <input
+          type="password"
+          name="password"
+          id="inputPassword"
+          class="form-control"
+          autocomplete="current-password"
+          required
+        />
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    ><br>
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" /><br />
 
-    <button class="btn btn-lg btn-primary" type="submit">
-        Se Connecter
-    </button>
-
-</form>
-    <a href="/reset-password">Mot de passe oublié</a>
-    <div>----------</div>
-    <p>Pas encore inscrit ?</p>
-    <button class="btn btn-lg btn-primary">
-        <a href="{{path('app_register')}}">Créer un compte</a>
-    </button>
+        <button class="btn btn-lg btn-primary" type="submit">Se Connecter</button>
+      </form>
+      <a href="/reset-password">Mot de passe oublié</a>
+      <div class="container separation-form">
+        <div class="separation"></div>
+      </div>
+      <p>Pas encore inscrit ?</p>
+      <button class="btn btn-lg btn-primary">
+        <a href="{{ path('app_register') }}" class="text-light text-decoration-none">Créer un compte</a>
+      </button>
+    </div>
+  </div>
 </div>
 {% endblock %}
