@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\ProductRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
@@ -21,19 +19,23 @@ class Product
     #[ORM\Column]
     private ?float $price = null;
 
+    #[ORM\Column]
+    private ?float $stockXS = null;
+
+    #[ORM\Column]
+    private ?float $stockS = null;
+
+    #[ORM\Column]
+    private ?float $stockM = null;
+
+    #[ORM\Column]
+    private ?float $stockL = null;
+
+    #[ORM\Column]
+    private ?float $stockXL = null;
+
     #[ORM\Column(length: 255)]
     private ?string $image = null;
-
-    /**
-     * @var Collection<int, ProductSize>
-     */
-    #[ORM\OneToMany(targetEntity: ProductSize::class, mappedBy: 'product')]
-    private Collection $sizes;
-
-    public function __construct()
-    {
-        $this->sizes = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -64,6 +66,66 @@ class Product
         return $this;
     }
 
+    public function getStockXS(): ?float
+    {
+        return $this->stockXS;
+    }
+
+    public function setStockXS(float $stockXS): static
+    {
+        $this->stockXS = $stockXS;
+
+        return $this;
+    }
+
+    public function getStockS(): ?float
+    {
+        return $this->stockS;
+    }
+
+    public function setStockS(float $stockS): static
+    {
+        $this->stockS = $stockS;
+
+        return $this;
+    }
+
+    public function getStockM(): ?float
+    {
+        return $this->stockM;
+    }
+
+    public function setStockM(float $stockM): static
+    {
+        $this->stockM = $stockM;
+
+        return $this;
+    }
+
+    public function getStockL(): ?float
+    {
+        return $this->stockL;
+    }
+
+    public function setStockL(float $stockL): static
+    {
+        $this->stockL = $stockL;
+
+        return $this;
+    }
+
+    public function getStockXL(): ?float
+    {
+        return $this->stockXL;
+    }
+
+    public function setStockXL(float $stockXL): static
+    {
+        $this->stockXL = $stockXL;
+
+        return $this;
+    }
+
     public function getImage(): ?string
     {
         return $this->image;
@@ -72,36 +134,6 @@ class Product
     public function setImage(string $image): static
     {
         $this->image = $image;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, ProductSize>
-     */
-    public function getSizes(): Collection
-    {
-        return $this->sizes;
-    }
-
-    public function addSize(ProductSize $size): static
-    {
-        if (!$this->sizes->contains($size)) {
-            $this->sizes->add($size);
-            $size->setProduct($this);
-        }
-
-        return $this;
-    }
-
-    public function removeSize(ProductSize $size): static
-    {
-        if ($this->sizes->removeElement($size)) {
-            // set the owning side to null (unless already changed)
-            if ($size->getProduct() === $this) {
-                $size->setProduct(null);
-            }
-        }
 
         return $this;
     }
