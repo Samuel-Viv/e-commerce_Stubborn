@@ -7,18 +7,19 @@
 <div class="container">
     <h1>Page produits</h1>
 
-    
+        <div class="container">
         {% for product in products %}
         <div class="card">
 
-            <img src="" alt="{{ product.name }}">
+            <img src="{{ asset('assets/uploads/' ~ product.image) }}" alt="{{ product.name }}" class="">
             <p>{{ product.name }}</p>
             <p>{{ product.price }}€</p>
 
             
-            <button type="button" class="btn btn-primary"><a href="#" class="text-light text-decoration-none">Voir</a></button>
+            <a href="{{ path('product.show', { 'id': product.id }) }}" class="btn btn-primary text-light text-decoration-none">Voir</a>
 
         </div>
         {% endfor%}
+        </div>
 </div>
 {% endblock %}
