@@ -4,26 +4,31 @@
 
 {% block body %}
 
-<div class="container">
-    <div class="container">
-        <img src="{{ asset('assets/uploads/' ~ product.image) }}" alt="{{ product.name }}">
+<link rel="stylesheet" href="{{ asset('assets/css/product_detail.css') }}" type="text/css" />
+
+<div class="container block-product">
+    <div class="container ">
+        <img src="{{ asset('assets/uploads/' ~ product.image) }}" alt="{{ product.name }}" class="image-product">
     </div>
-    <div class="container">
-        <h1>{{ product.name}}</h1>
-        <p>Prix: {{ product.price }}€</p>
+    <div class="container block-right">
+        <div>
+            <h1>{{ product.name}}</h1>
+            <p>Prix: {{ product.price }}€</p>
+        </div>
 
         <form action="#" method="post">
-        
-        <select name="size"  required>
-            <option value="size">Taille</option>
-            <option value="XS" {% if product.stockXS <= 0 %}disabled{% endif %}>XS </option>
-            <option value="S" {% if product.stockS <= 0 %}disabled{% endif %}>S </option>
-            <option value="M" {% if product.stockM <= 0 %}disabled{% endif %}>M </option>
-            <option value="L" {% if product.stockL <= 0 %}disabled{% endif %}>L </option>
-            <option value="XL" {% if product.stockXL <= 0 %}disabled{% endif %}>XL </option>
-        </select>
-
-        <button type="submit" class="btn btn-primary">Ajouter au panier</button>
+            <select name="size"  required>
+                <option value="size">Taille</option>
+                <option value="XS" {% if product.stockXS <= 0 %}disabled{% endif %}>XS </option>
+                <option value="S" {% if product.stockS <= 0 %}disabled{% endif %}>S </option>
+                <option value="M" {% if product.stockM <= 0 %}disabled{% endif %}>M </option>
+                <option value="L" {% if product.stockL <= 0 %}disabled{% endif %}>L </option>
+                <option value="XL" {% if product.stockXL <= 0 %}disabled{% endif %}>XL </option>
+            </select>
+            
+            <div class="button-cart">
+                <button type="submit" class="btn btn-primary">Ajouter au panier</button>
+            </div>
         </form>
     </div>
 
