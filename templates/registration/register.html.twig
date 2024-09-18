@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %} {% block title %}Register{% endblock %} {% block body %}
 
+<link rel="stylesheet" href="{{ asset('assets/css/register.css') }}" type="text/css" />
+
 <div class="container register">
   <div class="register-form">
     {% for flash_error in app.flashes('verify_email_error') %}

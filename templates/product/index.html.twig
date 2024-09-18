@@ -1,25 +1,43 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %} {% block title %}Page Produits{% endblock %} {% block body %}
 
-{% block title %}Page Produits{% endblock %}
+<link rel="stylesheet" href="{{ asset('assets/css/products.css') }}" type="text/css" />
 
-{% block body %}
+<div class="container my-5">
 
-<div class="container">
-    <h1>Page produits</h1>
-
-        <div class="container">
-        {% for product in products %}
-        <div class="card">
-
-            <img src="{{ asset('assets/uploads/' ~ product.image) }}" alt="{{ product.name }}" class="">
-            <p>{{ product.name }}</p>
-            <p>{{ product.price }}€</p>
-
-            
-            <a href="{{ path('product.show', { 'id': product.id }) }}" class="btn btn-primary text-light text-decoration-none">Voir</a>
-
+  <div class="container">
+    <div class="row">
+        <div class="col-4 my-5">
+                <form method="get" action="{{ path('app_products') }}" id="priceFilterForm" >
+                    <select name="price_category" id="price_category">
+                        <option value="">-- Fourchette de prix --</option>
+                        <option value="10-30">10€ - 30€</option>
+                        <option value="30-35">30€ - 35€</option>
+                        <option value="35-60">35€ - 60€</option>
+                    </select>
+                </form>
         </div>
-        {% endfor%}
+
+    {% for product in products %}
+    <div class="col-4">
+      <div class="card my-3">
+        <img src="{{ asset('assets/uploads/' ~ product.image) }}" alt="{{ product.name }}" class="" />
+
+        <div class="block-card">
+        <div class="">
+          <p>{{ product.name }}</p>
+          <p>{{ product.price }}€</p>
         </div>
+
+        <a href="{{ path('product.show', { id: product.id }) }}" class="btn btn-primary text-light text-decoration-none">Voir</a>
+      </div>
+      </div>
+    </div>
+    {% endfor%}
+    </div>
+   
+  </div>
 </div>
+
+<script src="{{asset('assets/js/FilterProducts.js')}}"></script>
+
 {% endblock %}
