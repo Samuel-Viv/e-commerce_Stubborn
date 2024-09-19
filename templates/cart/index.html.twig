@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Votre panier{% endblock %}
+
+{% block body %}
+
+<link rel="stylesheet" href="{{ asset('assets/css/cart.css') }}" type="text/css" />
+
+<div class="example-wrapper">
+
+   {% for item in cart %}
+   <div class="container">
+    <div class="block">
+    <img src="{{ asset('assets/uploads/' ~ item.image) }}" alt="{{ item.name }}">
+        <div class="block-produit">
+            <div class="block-info">
+            <p>Nom du produit: {{item.name}}</p>
+            <p>Prix: {{item.price }}€</p>
+            <p>Taille: {{item.size}}</p>
+            <p>Quantité: {{item.quantity}}</p>
+            </div>
+
+            <div class="block-remove">
+            <a href="{{ path("cart_remove", {id: item.id, size:item.size})}}" class="btn btn-danger">Retirer le produit</a>
+            </div>
+        </div>
+    </div>
+   </div>
+   {% endfor %}
+   <div class="container">
+        <div class="block-bottom">
+            <div class="block-total">
+            <p>Total : {{total}} €</p>
+            </div>
+
+            <div class="block-button">
+                <a href="" class="btn btn-danger">Finaliser ma commande</a>
+                <a href="{{ path('app_products') }}" class="btn btn-success">Continuer mes achats</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -25,7 +25,7 @@
 
                 {% else %}
                     <!-- Lien pour l'utilisateur connecté (non-admin) -->
-                    <li><a href="">Panier</a></li>
+                    <li><a href="{{ path('app_cart')}}"  class="{% if app.request.get('_route') == 'app_cart'%}active{% endif%}">Panier</a></li>
                 {% endif %}
                 
                 <li><a href="{{ path('app_logout')}}" class="{% if app.request.get('_route') == 'app_logout'%}active{% endif%}">Déconnexion</a></li>
