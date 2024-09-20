@@ -1,0 +1,25 @@
+
+
+.block-product{
+    display: flex;
+    border: 1px solid black;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding: 20px;
+}
+.image-product{
+    width: 400px;
+    box-shadow:10px 5px 15px rgba(0, 0, 0, 0.284) ;
+}
+
+.block-right{
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    margin-top: 5rem;
+    justify-content: space-around;
+}
+
+.button-cart{
+    margin-top: 1.5rem;
+}

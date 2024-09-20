@@ -1,0 +1,25 @@
+
+.register{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+    height: 100vh;
+    
+}
+
+.register-form{
+    width: 20vw;
+    border: 1px solid #444;
+    padding: 15px;
+}
+
+.form{
+    display: flex;
+}
+
+.titre-register{
+    font-size: 1.35rem;
+    margin-top: 0;
+    margin-bottom: 5;
+}
