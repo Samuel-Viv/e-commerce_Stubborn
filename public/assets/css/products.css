@@ -1,0 +1,19 @@
+.block-card{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+}
+
+.block-card a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 75px;
+}
+
+#priceFilterForm{
+    display: flex;
+    justify-content: center;
+}
