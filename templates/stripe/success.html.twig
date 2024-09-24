@@ -1,6 +1,12 @@
 {% extends 'base.html.twig' %} {% block title %}Payement accepté{% endblock %} {% block body %}
 
 
+<main>
+    <div class="container">
+        <h1>Votre payement à bien été accepté</h1>
 
-<h1>Payement Accepté</h1>
+        <a href="{{ path('app_home')}}">Retour à la page d'accueil</a>
+        
+    </div>
+</main>
 {% endblock %}

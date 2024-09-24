@@ -48,7 +48,7 @@ class StripeService{
             'cancel_url' => 'http://localhost:8000/cancel', 
         ]);
 
-
+        
         return $checkout_session -> url;
     }
 }
