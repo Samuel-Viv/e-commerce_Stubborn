@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class ProductController extends AbstractController
 {
-    #[Route('/products', name: 'app_products')]
+    #[Route('/products', name: 'app_products', methods:['GET'])]
     public function index(Request $request, ProductRepository $repository): Response
     {
         // Récupérer la catégorie de prix à partir des paramètres de requête (GET)
