@@ -8,7 +8,7 @@ use App\Service\StripeService;
 
 class PayementControllerTest extends WebTestCase
 {
-    public function testStripeCheckoutRedirect()
+    public function testIndex()
     {
         $client = static::createClient();
 
