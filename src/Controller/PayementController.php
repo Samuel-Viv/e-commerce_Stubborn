@@ -16,17 +16,18 @@ class PayementController extends AbstractController
     #[Route('/stripe', name: 'app_stripe')]
     public function stripe(SessionInterface $session, StripeService $stripeService):RedirectResponse
     {
-
+        
         //Recupération du panier depuis la session 
         $cart = $session->get('cart', []);
+        
         //Si le panier est vide retourne a la page panier
-        if (empty($cart)) {
-            return $this->redirectToRoute('app_cart');
-        }
-
+       if (empty($cart)) {
+           return $this->redirectToRoute('app_cart');
+       }
+       
         // Utiliser le service Stripe pour créer une session de paiement
         $checkoutUrl = $stripeService->createCheckoutSession($cart);
-
+        
         // Redirection vers Stripe pour finaliser la commande
         return new RedirectResponse($checkoutUrl, 201);
     }
