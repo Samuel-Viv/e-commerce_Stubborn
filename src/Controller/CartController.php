@@ -83,7 +83,7 @@ class CartController extends AbstractController
     public function remove(int $id,string $size, SessionInterface $session)
     {  
 
-        //Récupération ou initialisatin du panier
+        //Récupération ou initialisation du panier
         $cart = $session->get('cart', []);
 
         foreach ($cart as $key => $item) {
