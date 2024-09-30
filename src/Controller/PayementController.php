@@ -20,11 +20,6 @@ class PayementController extends AbstractController
         //Recupération du panier depuis la session 
         $cart = $session->get('cart', []);
         
-        //Si le panier est vide retourne a la page panier
-       if (empty($cart)) {
-           return $this->redirectToRoute('app_cart');
-       }
-       
         // Utiliser le service Stripe pour créer une session de paiement
         $checkoutUrl = $stripeService->createCheckoutSession($cart);
         
