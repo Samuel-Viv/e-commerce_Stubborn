@@ -9,10 +9,10 @@ Avant de commencer, assurez-vous d'avoir les éléments suivant d'installé sur 
 
 2/ Installation du projet
 
-Cloner le dépôt github dans un répertoire local.
-Utiliser `composer install` dans le terminal afin d'installer les dependances nécessaires au projet.
-Dans le fichier .env changer la base de donner pour `DATABASE_URL="mysql://root:@127.0.0.1:3306/stubborn_test?`.
-Créer la base de donnée avec la commande `php bin/console doctrine:database:create`.
+Cloner le dépôt github dans un répertoire local
+Utiliser `composer install` dans le terminal afin d'installer les dependances nécessaires au projet
+Dans le fichier .env changer la base de donner pour `DATABASE_URL="mysql://root:@127.0.0.1:3306/stubborn_test?`
+Créer la base de donnée avec la commande `php bin/console doctrine:database:create`
 Charger la structure de la BDD avec la commande `php bin/console doctrine:migrations:migrate`
 Migration des fixtures `php bin/console doctrine:fixtures:load`
 
